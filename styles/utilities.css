@@ -1,0 +1,11 @@
+@layer utilities {
+  .container {
+    @apply mx-auto max-1xl:px-5 1xl:max-w-[1290px];
+  }
+  .badge {
+    @apply text-sm inline-block border mb-2 px-3 py-1 rounded-full border-primary/60 text-paragraph/80 bg-primary/10 leading-6;
+  }
+  .badge-primary {
+    @apply bg-primary text-paragraph dark:text-paragraph text-sm font-medium;
+  }
+}

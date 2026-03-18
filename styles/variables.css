@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --container-center: true;
+  /* Fonts */
+  --font-Inter: "Inter", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+
+  /* Primary colors - Affily brand (vibrant coral/orange for affiliate marketing energy) */
+  --color-primary: #FF6B35;
+  --color-primary-100: #FFF0EB;
+  --color-primary-200: #E85D2C;
+
+  --color-stroke-1: #eceff4;
+  --color-stroke-2: #1b232f;
+
+  /* Dark colors */
+  --color-dark: #131410;
+  --color-dark-100: #141410;
+  --color-dark-200: #212220;
+  --color-dark-300: #191a17;
+  --color-dark-gradient: #191917;
+
+  /* Gray colors */
+  --color-gray: #f5f8fa;
+  --color-gray-50: #f7f7f7;
+  --color-gray-100: #d8dfe3;
+  --color-gray-200: #d5dfe3;
+  --color-gray-darkGradient: rgba(255, 255, 255, 0.15);
+
+  /* Border colors */
+  --color-borderColour: #e6edf0;
+  --color-borderColour-dark: #373935;
+  --color-borderColour-light: #F0F3EA;
+
+  /* Paragraph colors */
+  --color-paragraph: #18181b;
+  --color-paragraph-light: #5d6167;
+  --color-paragraph-muted: #A1A49D;
+
+  /* Rating */
+  --color-rating: #ffc107;
+
+  /* Shadows */
+  --drop-shadow-nav: 0px 0px 30px rgba(0, 0, 0, 0.05);
+  --drop-drop-shadow: 0px 0px 20px rgba(0, 0, 0, 0.07);
+  --shadow-nav: 0px 0px 30px rgba(0, 0, 0, 0.05);
+  --shadow-box: 0px 5px 50px rgba(0, 0, 0, 0.07);
+
+  /* Border radius */
+  --radius-large: 40px;
+  --radius-medium: 20px;
+  --radius: 12px;
+
+  /* Spacing */
+  --spacing-15: 60px;
+  --spacing-25: 100px;
+  --spacing-150: 150px;
+
+  /* Background sizes */
+  --bg-full: 100%;
+  --bg-80: 80%;
+
+  /* Screen Size */
+  --breakpoint-xs: 475px;
+  --breakpoint-1xl: 1400px;
+
+  /* Animations */
+  --animate-floating: floating 5000ms ease-in-out infinite;
+  --animate-floatingDown: floatingDown 5000ms ease-in-out infinite;
+  --animate-aurora: aurora 60s linear infinite;
+
+  /* Keyframes */
+  @keyframes floating {
+    0%, 100% { transform: translate(0, 0px); }
+    50% { transform: translate(0, -50px); }
+  }
+  @keyframes floatingDown {
+    0%, 100% { transform: translate(0, 0px); }
+    50% { transform: translate(0, 50px); }
+  }
+  @keyframes aurora {
+    from { background-position: 50% 50%, 50% 50%; }
+    to { background-position: 350% 50%, 350% 50%; }
+  }
+
+  /* Aurora colors */
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+
+  /* Typography */
+  --text-heading-1: 4.25rem;
+  --text-heading-1--line-height: 110%;
+  --text-heading-2: 3.25rem;
+  --text-heading-2--line-height: 120%;
+  --text-heading-3: 2.5rem;
+  --text-heading-3--line-height: 120%;
+  --text-heading-4: 2rem;
+  --text-heading-4--line-height: 130%;
+  --text-heading-5: 1.5rem;
+  --text-heading-5--line-height: 140%;
+  --text-heading-6: 1.25rem;
+  --text-heading-6--line-height: 140%;
+  --text-tagline-1: 1rem;
+  --text-tagline-1--line-height: 150%;
+  --text-tagline-2: 0.875rem;
+  --text-tagline-2--line-height: 150%;
+  --text-tagline-3: 0.75rem;
+  --text-tagline-3--line-height: 150%;
+}
+@custom-variant dark (&:where(.dark, .dark *));

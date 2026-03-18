@@ -1,0 +1,20 @@
+@import "./variables.css";
+@import "./typography.css";
+@import "./utilities.css";
+@import "./button.css";
+@import "./common.css";
+
+/* No-JS fallback */
+@media (scripting: none) {
+  [style*="opacity"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [style*="opacity"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
