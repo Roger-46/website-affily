@@ -1,0 +1,8 @@
+export { default as FeaturesHero } from './FeaturesHero'
+export { default as CoreFeatures } from './CoreFeatures'
+export { default as CommissionSection } from './CommissionSection'
+export { default as TrackingSection } from './TrackingSection'
+export { default as AffiliatePortalSection } from './AffiliatePortalSection'
+export { default as PayoutSection } from './PayoutSection'
+export { default as WhyMerchantsChoose } from './WhyMerchantsChoose'
+export { default as FeaturesFaq } from './FeaturesFaq'

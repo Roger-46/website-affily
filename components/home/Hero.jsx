@@ -56,14 +56,14 @@ const Hero = () => {
             </p>
             <div className="mb-4 flex flex-wrap items-center justify-center gap-4">
               <Link href="#" className="btn">
-                Start Your FREE Trial
+                Install Free on Shopify
               </Link>
               <Link href="/demo" className="btn-outline">
                 Book A Demo
               </Link>
             </div>
             <p className="text-sm text-paragraph-light">
-              Free 14-day trial &bull; No credit card required &bull; 5-minute setup
+              100% Free &bull; No credit card required &bull; 5-minute setup
             </p>
           </div>
         </FadeUpAnimation>

@@ -1,0 +1,5 @@
+export { default as PricingCards } from './PricingCards'
+export { default as PricingComparison } from './PricingComparison'
+export { default as PricingStats } from './PricingStats'
+export { default as WhyChooseUs } from './WhyChooseUs'
+export { default as PricingFaq } from './PricingFaq'
