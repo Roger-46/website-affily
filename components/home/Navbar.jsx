@@ -11,7 +11,7 @@ const menuItems = [
     id: 3,
     title: 'Resources',
     submenu: [
-      { id: 1, title: 'Help Center', path: '#', external: false },
+      { id: 1, title: 'Help Center', path: '/help' },
       { id: 2, title: 'Blog', path: '/blog' },
       { id: 3, title: 'About Us', path: '/about' },
     ],
