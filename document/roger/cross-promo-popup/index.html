@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Affiliate Marketing — 5 Popup Designs</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, sans-serif;
+    background: #f1f2f4;
+    color: #202223;
+    overflow: hidden;
+  }
+  .app { display: flex; height: 100vh; }
+
+  /* ─── Sidebar ─── */
+  .sidebar {
+    width: 290px;
+    background: #1a1d29;
+    color: #fff;
+    padding: 24px 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+  }
+  .sidebar h1 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .sidebar .subtitle {
+    font-size: 12px; opacity: 0.55;
+    margin-bottom: 6px; line-height: 1.5;
+  }
+  .target-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px;
+    background: linear-gradient(135deg,#8b5cf6,#6366f1);
+    border-radius: 20px;
+    font-size: 11px; font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .section-label {
+    font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.08em; opacity: 0.5;
+    margin: 18px 0 8px;
+  }
+  .design-btn {
+    display: flex; align-items: flex-start; gap: 12px;
+    width: 100%; text-align: left;
+    padding: 12px 14px;
+    background: transparent; color: #d6d8e0;
+    border: 1px solid #2a2e3d; border-radius: 10px;
+    margin-bottom: 8px; cursor: pointer;
+    font-size: 13px; transition: all 0.15s;
+  }
+  .design-btn:hover { background: #232737; border-color: #3a3f52; }
+  .design-btn.active {
+    background: #232737;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.25);
+  }
+  .design-btn .swatch {
+    width: 32px; height: 32px; border-radius: 8px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 14px; font-weight: 700;
+  }
+  .design-btn .meta { flex: 1; line-height: 1.4; }
+  .design-btn .meta strong { display: block; font-weight: 600; color: #fff; margin-bottom: 2px; }
+  .design-btn .meta small { color: #8b8f9c; font-size: 11px; }
+
+  .info-card {
+    margin-top: 16px; padding: 14px;
+    background: #232737; border-radius: 10px;
+    font-size: 12px; line-height: 1.6;
+  }
+  .info-card strong { color: #a5b4fc; display: block; margin-bottom: 4px; }
+
+  /* ─── Stage / Host dashboard (consistent) ─── */
+  .stage { flex: 1; position: relative; overflow: hidden; }
+  .dashboard {
+    height: 100%; background: #f6f6f7;
+    padding: 22px 32px; overflow: hidden;
+    pointer-events: none; user-select: none;
+  }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 16px; border-bottom: 1px solid #e3e5e7;
+    margin-bottom: 20px;
+  }
+  .topbar .brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 16px; color: #1a1d29;
+  }
+  .topbar .brand .logo {
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg,#1a1d29,#2a2e3d);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 800; font-size: 14px;
+  }
+  .topbar .nav { display: flex; gap: 18px; font-size: 13px; color: #6d7175; }
+  .page-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; }
+  .stat-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin-bottom: 16px;
+  }
+  .stat-card {
+    background: #fff; border: 1px solid #e3e5e7;
+    border-radius: 10px; padding: 14px;
+  }
+  .stat-card .label { font-size: 12px; color: #6d7175; }
+  .stat-card .value { font-size: 22px; font-weight: 700; margin-top: 4px; }
+  .stat-card .delta { font-size: 11px; color: #29845a; margin-top: 4px; }
+  .panel-row {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 12px;
+  }
+  .panel {
+    background: #fff; border: 1px solid #e3e5e7;
+    border-radius: 10px; padding: 16px;
+  }
+  .panel h4 { font-size: 14px; margin-bottom: 12px; }
+  .review-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid #edeeef;
+    font-size: 12px;
+  }
+  .review-row:last-child { border-bottom: none; }
+  .review-stars { color: #f59e0b; font-size: 11px; }
+  .review-name { font-weight: 600; color: #1a1d29; }
+  .review-text { color: #6d7175; font-size: 11px; }
+  .placeholder-bar {
+    height: 8px; background: #edeeef; border-radius: 4px; margin-bottom: 8px;
+  }
+  .placeholder-bar.short { width: 60%; }
+  .placeholder-bar.tiny { width: 40%; height: 6px; }
+
+  /* ─── Overlay & Popup base ─── */
+  .overlay {
+    position: absolute; inset: 0;
+    background: rgba(20, 22, 35, 0.55);
+    backdrop-filter: blur(2px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 50;
+  }
+  .popup {
+    width: 480px; background: #fff;
+    border-radius: 18px; overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    position: relative;
+    animation: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .popup-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 30px; height: 30px;
+    background: rgba(255,255,255,0.85);
+    border: none; border-radius: 50%;
+    cursor: pointer; font-size: 18px; color: #6d7175;
+    z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .popup-close:hover { background: #fff; color: #1a1d29; transform: rotate(90deg); }
+  .popup-logo {
+    position: absolute; top: 22px; left: 26px; z-index: 10;
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 800; font-size: 16px;
+  }
+  .popup-logo .logo-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  /* Hero base */
+  .hero { position: relative; height: 340px; overflow: hidden; }
+
+  /* Phone mockup */
+  .phone {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -48%);
+    width: 170px; height: 280px;
+    background: #1a1d29; border-radius: 28px; padding: 6px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    z-index: 2;
+  }
+  .phone::before {
+    content: ""; position: absolute;
+    top: 10px; left: 50%; transform: translateX(-50%);
+    width: 50px; height: 14px;
+    background: #1a1d29; border-radius: 0 0 10px 10px;
+    z-index: 3;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    border-radius: 22px; overflow: hidden;
+    position: relative;
+  }
+  .phone-content {
+    padding: 26px 12px 12px; height: 100%;
+    display: flex; flex-direction: column;
+  }
+
+  /* Floating cards */
+  .float-card {
+    position: absolute; background: #fff;
+    border-radius: 12px;
+    padding: 8px 12px 8px 8px;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 3;
+    animation: floaty 3s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .float-card .card-img {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .float-card .card-text { font-size: 11px; line-height: 1.3; max-width: 130px; }
+  .float-card .card-name { font-weight: 700; color: #1a1d29; }
+  .float-card .card-meta { color: #6d7175; font-size: 10px; margin-top: 1px; }
+  .float-card.tl { top: 60px; left: 22px; animation-delay: 0s; }
+  .float-card.br { top: 130px; right: 22px; animation-delay: 1.2s; }
+  .float-card.bottom {
+    bottom: 24px; left: 50%; transform: translateX(-50%);
+    padding: 9px 16px; animation-delay: 0.6s;
+  }
+  .float-card.bottom .card-img { width: 28px; height: 28px; font-size: 14px; }
+
+  /* Sparkles */
+  .sparkle {
+    position: absolute; font-size: 16px; z-index: 1;
+    animation: twinkle 2.4s ease-in-out infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.4; transform: scale(0.85); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+  .sparkle.s1 { top: 30px; left: 30%; animation-delay: 0s; }
+  .sparkle.s2 { top: 80px; right: 30%; animation-delay: 0.6s; font-size: 12px; }
+  .sparkle.s3 { bottom: 90px; left: 18%; animation-delay: 1.2s; font-size: 14px; }
+  .sparkle.s4 { top: 180px; right: 12%; animation-delay: 1.8s; font-size: 10px; }
+  .sparkle.s5 { top: 50%; left: 8%; animation-delay: 2.1s; font-size: 13px; }
+
+  /* Arrow doodle */
+  .arrow-doodle { position: absolute; z-index: 3; pointer-events: none; }
+  .arrow-doodle.left { top: 100px; left: 95px; }
+  .arrow-doodle.right { top: 175px; right: 80px; transform: scaleX(-1); }
+
+  /* Bottom content */
+  .content { padding: 22px 28px 24px; }
+  .content h3 {
+    font-size: 22px; font-weight: 800;
+    color: #1a1d29; margin-bottom: 8px;
+    line-height: 1.25; letter-spacing: -0.01em;
+  }
+  .content h3 .accent { background: linear-gradient(135deg,#8b5cf6,#6366f1); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .content p {
+    font-size: 13.5px; color: #5c5f62;
+    margin-bottom: 16px; line-height: 1.55;
+  }
+  .cta {
+    display: block; width: 100%; padding: 14px;
+    color: #fff; text-align: center;
+    border-radius: 10px;
+    font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    cursor: pointer; border: none;
+    transition: all 0.15s;
+  }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+  .footer-note {
+    text-align: center; font-size: 11px;
+    color: #8c8f94; margin-top: 10px;
+  }
+  .footer-note .star { color: #f59e0b; }
+
+  /* ═══════ DESIGN 1: GOLD RUSH (Luxury) ═══════ */
+  .design-d1 .hero { background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #d97706 100%); }
+  .design-d1 .popup-logo { color: #1a1d29; }
+  .design-d1 .popup-logo .logo-mark { background: linear-gradient(135deg,#fbbf24,#d97706); }
+  .design-d1 .sparkle { color: #fff; text-shadow: 0 2px 8px rgba(217,119,6,0.4); }
+  .design-d1 .arrow-doodle path { stroke: #92400e; }
+  .design-d1 .content h3 .accent { background: linear-gradient(135deg,#d97706,#92400e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .design-d1 .cta { background: linear-gradient(135deg,#1a1d29 0%,#451a03 100%); }
+  .phone-d1 { background: linear-gradient(170deg,#1a1d29 0%,#451a03 100%); }
+  .phone-d1 .label { color: #fbbf24; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; margin-bottom: 8px; }
+  .phone-d1 .big-num { color: #fbbf24; font-size: 32px; font-weight: 900; text-align: center; letter-spacing: -0.02em; line-height: 1; }
+  .phone-d1 .delta { color: #34d399; font-size: 10px; text-align: center; margin-top: 4px; font-weight: 600; }
+  .phone-d1 .row { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; margin-top: 6px; background: rgba(251,191,36,0.1); border-radius: 6px; }
+  .phone-d1 .row .l { color: #fbbf24; font-size: 9px; font-weight: 600; }
+  .phone-d1 .row .v { color: #fff; font-size: 10px; font-weight: 700; }
+  .phone-d1 .stamp { margin-top: 12px; padding: 8px; background: linear-gradient(135deg,#fbbf24,#d97706); border-radius: 8px; color: #1a1d29; font-size: 10px; font-weight: 800; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ═══════ DESIGN 2: NETWORK EFFECT (Connections) ═══════ */
+  .design-d2 .hero { background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 50%, #2563eb 100%); }
+  .design-d2 .popup-logo { color: #1a1d29; }
+  .design-d2 .popup-logo .logo-mark { background: linear-gradient(135deg,#3b82f6,#06b6d4); }
+  .design-d2 .sparkle { color: #fff; text-shadow: 0 2px 8px rgba(37,99,235,0.4); }
+  .design-d2 .arrow-doodle path { stroke: #1e40af; }
+  .design-d2 .content h3 .accent { background: linear-gradient(135deg,#2563eb,#06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .design-d2 .cta { background: linear-gradient(135deg,#1e3a8a 0%,#1e40af 100%); }
+  .phone-d2 { background: linear-gradient(170deg,#0f172a 0%,#1e40af 100%); }
+  .phone-d2 .net-svg { width: 100%; height: 130px; }
+  .phone-d2 .stat-block { margin-top: 8px; padding: 8px; background: rgba(96,165,250,0.15); border-radius: 8px; border: 1px solid rgba(96,165,250,0.3); }
+  .phone-d2 .stat-block .l { color: #93c5fd; font-size: 9px; }
+  .phone-d2 .stat-block .v { color: #fff; font-size: 16px; font-weight: 800; margin-top: 2px; }
+  .phone-d2 .nodes-row { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+  .phone-d2 .node-pill { flex: 1; padding: 5px 4px; background: rgba(96,165,250,0.2); border-radius: 6px; text-align: center; margin: 0 2px; }
+  .phone-d2 .node-pill .v { color: #fff; font-size: 11px; font-weight: 700; }
+  .phone-d2 .node-pill .l { color: #93c5fd; font-size: 7px; }
+
+  /* ═══════ DESIGN 3: LEADERBOARD (Gamified) ═══════ */
+  .design-d3 .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%); }
+  .design-d3 .popup-logo { color: #fff; }
+  .design-d3 .popup-logo .logo-mark { background: linear-gradient(135deg,#10b981,#059669); box-shadow: 0 4px 12px rgba(16,185,129,0.5); }
+  .design-d3 .sparkle { color: #6ee7b7; text-shadow: 0 0 12px rgba(110,231,183,0.8); }
+  .design-d3 .arrow-doodle path { stroke: #6ee7b7; }
+  .design-d3 .content h3 .accent { background: linear-gradient(135deg,#10b981,#34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .design-d3 .cta { background: linear-gradient(135deg,#10b981 0%,#059669 100%); box-shadow: 0 4px 14px rgba(16,185,129,0.35); }
+  .phone-d3 { background: linear-gradient(170deg,#000 0%,#0f172a 100%); }
+  .phone-d3 .title { color: #6ee7b7; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-align: center; margin-bottom: 8px; text-shadow: 0 0 8px rgba(110,231,183,0.6); }
+  .phone-d3 .leader-row { display: flex; align-items: center; gap: 6px; padding: 6px; background: rgba(16,185,129,0.08); border-left: 2px solid #10b981; border-radius: 4px; margin-bottom: 4px; }
+  .phone-d3 .leader-row.gold { background: linear-gradient(90deg, rgba(251,191,36,0.2), transparent); border-left-color: #fbbf24; }
+  .phone-d3 .leader-row.silver { background: linear-gradient(90deg, rgba(203,213,225,0.15), transparent); border-left-color: #cbd5e1; }
+  .phone-d3 .leader-row.bronze { background: linear-gradient(90deg, rgba(217,119,6,0.18), transparent); border-left-color: #d97706; }
+  .phone-d3 .rank { color: #fff; font-size: 11px; font-weight: 800; width: 16px; }
+  .phone-d3 .name { color: #fff; font-size: 9px; font-weight: 600; flex: 1; }
+  .phone-d3 .score { color: #6ee7b7; font-size: 9px; font-weight: 700; }
+  .phone-d3 .you-row { margin-top: 8px; padding: 6px 8px; background: rgba(16,185,129,0.2); border: 1px dashed #10b981; border-radius: 6px; text-align: center; color: #6ee7b7; font-size: 9px; font-weight: 700; }
+
+  /* ═══════ DESIGN 4: CREATOR (Influencer) ═══════ */
+  .design-d4 .hero { background: linear-gradient(135deg, #fce7f3 0%, #f9a8d4 40%, #f472b6 70%, #fb923c 100%); }
+  .design-d4 .popup-logo { color: #1a1d29; }
+  .design-d4 .popup-logo .logo-mark { background: linear-gradient(135deg,#ec4899,#f97316); }
+  .design-d4 .sparkle { color: #fff; text-shadow: 0 2px 8px rgba(236,72,153,0.5); }
+  .design-d4 .arrow-doodle path { stroke: #be185d; }
+  .design-d4 .content h3 .accent { background: linear-gradient(135deg,#ec4899,#f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .design-d4 .cta { background: linear-gradient(135deg,#ec4899 0%,#f97316 100%); }
+  .phone-d4 { background: linear-gradient(170deg,#fff 0%,#fdf2f8 100%); }
+  .phone-d4 .creator-head { display: flex; align-items: center; gap: 6px; padding: 6px; }
+  .phone-d4 .creator-head .av { width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg,#ec4899,#f97316); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 10px; }
+  .phone-d4 .creator-head .nm { font-size: 10px; font-weight: 700; color: #1a1d29; }
+  .phone-d4 .creator-head .vfd { color: #ec4899; font-size: 9px; }
+  .phone-d4 .post-img { width: 100%; height: 90px; background: linear-gradient(135deg,#fbcfe8,#fdba74); border-radius: 6px; margin-top: 4px; position: relative; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .phone-d4 .post-img .like-tag { position: absolute; bottom: 6px; left: 6px; background: rgba(255,255,255,0.95); padding: 2px 6px; border-radius: 10px; font-size: 8px; font-weight: 700; color: #ec4899; }
+  .phone-d4 .bio-link { margin-top: 6px; padding: 8px; background: linear-gradient(135deg,#ec4899,#f97316); border-radius: 8px; color: #fff; font-size: 10px; font-weight: 700; text-align: center; }
+  .phone-d4 .sales { margin-top: 6px; text-align: center; }
+  .phone-d4 .sales .v { color: #1a1d29; font-size: 16px; font-weight: 800; }
+  .phone-d4 .sales .l { color: #6d7175; font-size: 8px; }
+
+  /* ═══════ DESIGN 5: ZERO RISK (Clean / Trust) ═══════ */
+  .design-d5 .hero { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%); }
+  .design-d5 .popup-logo { color: #1a1d29; }
+  .design-d5 .popup-logo .logo-mark { background: linear-gradient(135deg,#10b981,#059669); }
+  .design-d5 .sparkle { color: #6ee7b7; }
+  .design-d5 .arrow-doodle path { stroke: #047857; }
+  .design-d5 .content h3 .accent { background: linear-gradient(135deg,#059669,#10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .design-d5 .cta { background: linear-gradient(135deg,#059669 0%,#047857 100%); }
+  .phone-d5 { background: linear-gradient(170deg,#fff 0%,#ecfdf5 100%); }
+  .phone-d5 .head-pill { display: inline-block; padding: 3px 8px; background: #d1fae5; color: #047857; font-size: 8px; font-weight: 700; border-radius: 12px; margin: 0 auto 8px; text-align: center; }
+  .phone-d5 .center-text { text-align: center; }
+  .phone-d5 .calc { padding: 10px; background: #fff; border: 1px solid #d1fae5; border-radius: 10px; margin-bottom: 8px; }
+  .phone-d5 .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+  .phone-d5 .calc-row .l { font-size: 9px; color: #6d7175; }
+  .phone-d5 .calc-row .v { font-size: 11px; font-weight: 700; color: #1a1d29; }
+  .phone-d5 .calc-row .v.zero { color: #d72c0d; }
+  .phone-d5 .calc-row .v.gain { color: #059669; }
+  .phone-d5 .divider { height: 1px; background: #d1fae5; margin: 4px 0; }
+  .phone-d5 .roi-big { font-size: 28px; font-weight: 900; color: #059669; text-align: center; line-height: 1; margin: 4px 0; }
+  .phone-d5 .check-row { display: flex; align-items: center; gap: 4px; padding: 3px 0; font-size: 9px; color: #047857; font-weight: 600; }
+  .phone-d5 .check-row::before { content: "✓"; width: 14px; height: 14px; background: #10b981; color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 800; flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    .sidebar { width: 240px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .panel-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <!-- ─── Sidebar ─── -->
+  <aside class="sidebar">
+    <h1>5 Popup Designs</h1>
+    <p class="subtitle">Refer Avada Affiliate Marketing — 5 hướng visual khác nhau, cùng bố cục Shopvid.</p>
+    <div class="target-pill">🎯 Avada Affiliate Marketing</div>
+
+    <div class="section-label">Choose design</div>
+
+    <button class="design-btn active" data-design="d1">
+      <span class="swatch" style="background:linear-gradient(135deg,#fbbf24,#d97706);">💰</span>
+      <span class="meta"><strong>D1 · Gold Rush</strong><small>Luxury · cash-on-autopilot</small></span>
+    </button>
+
+    <button class="design-btn" data-design="d2">
+      <span class="swatch" style="background:linear-gradient(135deg,#3b82f6,#06b6d4);">🌐</span>
+      <span class="meta"><strong>D2 · Network Effect</strong><small>Connection · viral reach</small></span>
+    </button>
+
+    <button class="design-btn" data-design="d3">
+      <span class="swatch" style="background:linear-gradient(135deg,#10b981,#059669);">🏆</span>
+      <span class="meta"><strong>D3 · Leaderboard</strong><small>Gamified · neon competitive</small></span>
+    </button>
+
+    <button class="design-btn" data-design="d4">
+      <span class="swatch" style="background:linear-gradient(135deg,#ec4899,#f97316);">📱</span>
+      <span class="meta"><strong>D4 · Creator</strong><small>Influencer · social commerce</small></span>
+    </button>
+
+    <button class="design-btn" data-design="d5">
+      <span class="swatch" style="background:linear-gradient(135deg,#10b981,#047857);">🛡️</span>
+      <span class="meta"><strong>D5 · Zero Risk</strong><small>Clean · pay-on-performance</small></span>
+    </button>
+
+    <div class="info-card">
+      <strong>Bố cục giữ nguyên</strong>
+      Logo trái-trên · Close phải-trên · Phone giữa · 3 floating cards · Sparkles · Arrow doodle · Title + Desc + CTA. Đổi: màu, copy, phone visual, decoration vibes.
+    </div>
+  </aside>
+
+  <!-- ─── Stage ─── -->
+  <div class="stage">
+    <!-- Generic host dashboard background (Air Reviews-like) -->
+    <div class="dashboard">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">AR</div>
+          Air Reviews
+        </div>
+        <div class="nav">
+          <span>Dashboard</span><span>Reviews</span><span>Widgets</span><span>Settings</span>
+        </div>
+      </div>
+      <div class="page-title">Welcome to Air Reviews</div>
+      <div class="stat-row">
+        <div class="stat-card"><div class="label">Total reviews</div><div class="value">2,847</div><div class="delta">+184 this week</div></div>
+        <div class="stat-card"><div class="label">Avg rating</div><div class="value">4.8 ★</div><div class="delta">+0.1 this month</div></div>
+        <div class="stat-card"><div class="label">Photo reviews</div><div class="value">412</div><div class="delta">+31 this week</div></div>
+        <div class="stat-card"><div class="label">Conversion lift</div><div class="value">+18%</div><div class="delta">vs no reviews</div></div>
+      </div>
+      <div class="panel-row">
+        <div class="panel">
+          <h4>⭐ Recent reviews</h4>
+          <div class="review-row"><span class="review-stars">★★★★★</span><div><div class="review-name">Sarah W.</div><div class="review-text">"Love it, exactly as described!"</div></div></div>
+          <div class="review-row"><span class="review-stars">★★★★★</span><div><div class="review-name">Mike D.</div><div class="review-text">"Quality is amazing. Will buy again."</div></div></div>
+          <div class="review-row"><span class="review-stars">★★★★☆</span><div><div class="review-name">Emma J.</div><div class="review-text">"Great product, fast shipping."</div></div></div>
+        </div>
+        <div class="panel">
+          <h4>Pending requests</h4>
+          <div class="placeholder-bar"></div>
+          <div class="placeholder-bar short"></div>
+          <div class="placeholder-bar tiny"></div>
+          <div class="placeholder-bar"></div>
+          <div class="placeholder-bar short"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Popup overlay ─── -->
+    <div class="overlay">
+      <div class="popup design-d1" id="popup">
+        <button class="popup-close" title="Đóng">×</button>
+        <div class="popup-logo">
+          <span class="logo-mark" id="logoMark">⬡</span>
+          <span id="logoText">Avada Affiliate</span>
+        </div>
+
+        <div class="hero">
+          <span class="sparkle s1">✦</span>
+          <span class="sparkle s2">✦</span>
+          <span class="sparkle s3">✦</span>
+          <span class="sparkle s4">✦</span>
+          <span class="sparkle s5">✦</span>
+
+          <div class="float-card tl" id="cardTL">
+            <div class="card-img" id="cardTLImg"></div>
+            <div class="card-text">
+              <div class="card-name" id="cardTLName"></div>
+              <div class="card-meta" id="cardTLMeta"></div>
+            </div>
+          </div>
+          <div class="float-card br" id="cardBR">
+            <div class="card-img" id="cardBRImg"></div>
+            <div class="card-text">
+              <div class="card-name" id="cardBRName"></div>
+              <div class="card-meta" id="cardBRMeta"></div>
+            </div>
+          </div>
+          <div class="float-card bottom" id="cardBottom">
+            <div class="card-img" id="cardBottomImg"></div>
+            <div class="card-text"><div class="card-name" id="cardBottomName"></div></div>
+          </div>
+
+          <svg class="arrow-doodle left" width="60" height="50" viewBox="0 0 60 50" fill="none">
+            <path d="M5 5 Q 30 15, 50 35" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3" fill="none"/>
+            <path d="M50 35 L 44 30 M 50 35 L 46 41" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+          <svg class="arrow-doodle right" width="55" height="40" viewBox="0 0 55 40" fill="none">
+            <path d="M5 5 Q 25 10, 45 30" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3" fill="none"/>
+            <path d="M45 30 L 40 25 M 45 30 L 41 35" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          </svg>
+
+          <div class="phone">
+            <div class="phone-screen" id="phoneScreen"></div>
+          </div>
+        </div>
+
+        <div class="content">
+          <h3 id="popupTitle"></h3>
+          <p id="popupDesc"></p>
+          <button class="cta" id="popupCta"></button>
+          <div class="footer-note">No credit card required · <span class="star">★★★★★</span> 4.9 on Shopify App Store</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const designs = {
+  /* ═══ D1: GOLD RUSH ═══ */
+  d1: {
+    logoText: "Avada Affiliate",
+    logoEmoji: "⬡",
+    titleHtml: "Cash machine on <span class='accent'>autopilot</span>.",
+    desc: "Recruit affiliates trong 5 phút. Họ post, share, sell — bạn ngủ dậy thấy đơn. Auto payouts, real-time tracking, zero ad spend.",
+    cta: "TURN ON THE CASH FLOW",
+    phoneHtml: `
+      <div class="phone-d1" style="height:100%;padding:24px 12px 12px;">
+        <div class="label">💰 Total earnings</div>
+        <div class="big-num">$12,847</div>
+        <div class="delta">↑ +47% vs last month</div>
+        <div class="row"><span class="l">Top earner</span><span class="v">$8.4K</span></div>
+        <div class="row"><span class="l">Pending payouts</span><span class="v">$2,140</span></div>
+        <div class="row"><span class="l">Conversion</span><span class="v">8.2%</span></div>
+        <div class="stamp">Cash flow ON 💵</div>
+      </div>`,
+    cards: {
+      tl: { bg: "linear-gradient(135deg,#fef3c7,#fde68a)", color: "#92400e", emoji: "💰", name: "$8,420 today", meta: "Auto-paid affiliates" },
+      br: { bg: "linear-gradient(135deg,#fef3c7,#fcd34d)", color: "#92400e", emoji: "🏆", name: "Top earner", meta: "Sarah · $8.4K/mo" },
+      bottom: { bg: "linear-gradient(135deg,#1a1d29,#451a03)", color: "#fbbf24", emoji: "💎", name: "Pay only on real sales" }
+    }
+  },
+
+  /* ═══ D2: NETWORK EFFECT ═══ */
+  d2: {
+    logoText: "Avada Affiliate",
+    logoEmoji: "🌐",
+    titleHtml: "One link. <span class='accent'>Infinite reach</span>.",
+    desc: "Mỗi affiliate là 1 nút trong sales network của bạn. Followers của họ → khách của bạn. Compound growth, không tốn 1 đồng quảng cáo.",
+    cta: "BUILD MY NETWORK",
+    phoneHtml: `
+      <div class="phone-d2" style="height:100%;padding:24px 10px 12px;">
+        <div style="color:#93c5fd;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;text-align:center;margin-bottom:6px;">Network reach</div>
+        <svg class="net-svg" viewBox="0 0 150 130">
+          <defs>
+            <radialGradient id="glow"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.6"/><stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/></radialGradient>
+          </defs>
+          <line x1="75" y1="65" x2="30" y2="25" stroke="#60a5fa" stroke-width="0.8" opacity="0.6"/>
+          <line x1="75" y1="65" x2="120" y2="30" stroke="#60a5fa" stroke-width="0.8" opacity="0.6"/>
+          <line x1="75" y1="65" x2="20" y2="100" stroke="#60a5fa" stroke-width="0.8" opacity="0.6"/>
+          <line x1="75" y1="65" x2="130" y2="105" stroke="#60a5fa" stroke-width="0.8" opacity="0.6"/>
+          <line x1="30" y1="25" x2="55" y2="10" stroke="#60a5fa" stroke-width="0.5" opacity="0.4"/>
+          <line x1="120" y1="30" x2="140" y2="55" stroke="#60a5fa" stroke-width="0.5" opacity="0.4"/>
+          <line x1="20" y1="100" x2="40" y2="120" stroke="#60a5fa" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="75" cy="65" r="14" fill="url(#glow)"/>
+          <circle cx="75" cy="65" r="9" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
+          <text x="75" y="69" text-anchor="middle" font-size="9" font-weight="bold" fill="#1e40af">YOU</text>
+          <circle cx="30" cy="25" r="5" fill="#60a5fa"/>
+          <circle cx="120" cy="30" r="5" fill="#60a5fa"/>
+          <circle cx="20" cy="100" r="5" fill="#60a5fa"/>
+          <circle cx="130" cy="105" r="5" fill="#60a5fa"/>
+          <circle cx="55" cy="10" r="3" fill="#93c5fd"/>
+          <circle cx="140" cy="55" r="3" fill="#93c5fd"/>
+          <circle cx="40" cy="120" r="3" fill="#93c5fd"/>
+        </svg>
+        <div class="stat-block">
+          <div class="l">Total reach</div>
+          <div class="v">48,230</div>
+        </div>
+        <div class="nodes-row">
+          <div class="node-pill"><div class="v">142</div><div class="l">Affiliates</div></div>
+          <div class="node-pill"><div class="v">12K</div><div class="l">Followers</div></div>
+          <div class="node-pill"><div class="v">4.2x</div><div class="l">Multiplier</div></div>
+        </div>
+      </div>`,
+    cards: {
+      tl: { bg: "linear-gradient(135deg,#dbeafe,#bfdbfe)", color: "#1e40af", emoji: "🌐", name: "1 → 10× reach", meta: "Viral compound" },
+      br: { bg: "linear-gradient(135deg,#cffafe,#a5f3fc)", color: "#0e7490", emoji: "🔗", name: "Smart referral links", meta: "Auto-track every share" },
+      bottom: { bg: "linear-gradient(135deg,#1e40af,#06b6d4)", color: "#fff", emoji: "👥", name: "Build your sales tribe" }
+    }
+  },
+
+  /* ═══ D3: LEADERBOARD ═══ */
+  d3: {
+    logoText: "Avada Affiliate",
+    logoEmoji: "🏆",
+    titleHtml: "Turn selling into <span class='accent'>a sport</span>.",
+    desc: "Affiliate program có tiers, streaks, leaderboards. Affiliates đua nhau lên #1 — bạn thắng mọi trận. Gamification = retention thật.",
+    cta: "START THE GAME",
+    phoneHtml: `
+      <div class="phone-d3" style="height:100%;padding:24px 10px 12px;">
+        <div class="title">⚡ Top sellers</div>
+        <div class="leader-row gold"><span class="rank">1</span><span class="name">Sarah W.</span><span class="score">$12.4K</span></div>
+        <div class="leader-row silver"><span class="rank">2</span><span class="name">Mike D.</span><span class="score">$8.2K</span></div>
+        <div class="leader-row bronze"><span class="rank">3</span><span class="name">Emma J.</span><span class="score">$5.8K</span></div>
+        <div class="leader-row"><span class="rank">4</span><span class="name">Alex K.</span><span class="score">$3.4K</span></div>
+        <div class="leader-row"><span class="rank">5</span><span class="name">Liam B.</span><span class="score">$2.1K</span></div>
+        <div class="you-row">⚡ Live · 142 affiliates competing</div>
+      </div>`,
+    cards: {
+      tl: { bg: "linear-gradient(135deg,#fef3c7,#fde68a)", color: "#92400e", emoji: "🏆", name: "Live leaderboard", meta: "Real-time ranking" },
+      br: { bg: "linear-gradient(135deg,#d1fae5,#a7f3d0)", color: "#065f46", emoji: "⚡", name: "Tier rewards", meta: "Gold · Silver · Bronze" },
+      bottom: { bg: "linear-gradient(135deg,#10b981,#064e3b)", color: "#6ee7b7", emoji: "🎯", name: "Affiliates compete · You win" }
+    }
+  },
+
+  /* ═══ D4: CREATOR ═══ */
+  d4: {
+    logoText: "Avada Affiliate",
+    logoEmoji: "📱",
+    titleHtml: "Creators sell. <span class='accent'>You cash</span>.",
+    desc: "Influencers và content creators có store riêng + bio link. Họ post, bạn ship, cả hai đều win. Social commerce thế hệ mới.",
+    cta: "INVITE CREATORS",
+    phoneHtml: `
+      <div class="phone-d4" style="height:100%;padding:20px 8px 8px;">
+        <div class="creator-head">
+          <div class="av">SW</div>
+          <div>
+            <div class="nm">@sarah_wilson</div>
+            <div class="vfd">✓ Verified affiliate</div>
+          </div>
+        </div>
+        <div class="post-img">
+          ✨💄
+          <div class="like-tag">♡ 4,820</div>
+        </div>
+        <div class="bio-link">🛍️ Shop my picks → link</div>
+        <div class="sales">
+          <div class="v">$2,847</div>
+          <div class="l">earned this week</div>
+        </div>
+      </div>`,
+    cards: {
+      tl: { bg: "linear-gradient(135deg,#fce7f3,#fbcfe8)", color: "#be185d", emoji: "📱", name: "Bio-link store", meta: "1 link → all products" },
+      br: { bg: "linear-gradient(135deg,#fed7aa,#fdba74)", color: "#9a3412", emoji: "💖", name: "Track every share", meta: "TikTok · IG · YouTube" },
+      bottom: { bg: "linear-gradient(135deg,#ec4899,#f97316)", color: "#fff", emoji: "🎬", name: "Built for creators" }
+    }
+  },
+
+  /* ═══ D5: ZERO RISK ═══ */
+  d5: {
+    logoText: "Avada Affiliate",
+    logoEmoji: "🛡️",
+    titleHtml: "Zero risk. <span class='accent'>Only revenue</span>.",
+    desc: "Không phí cố định. Không ad budget. Không setup cost. Bạn chỉ trả khi affiliate mang về sale thật — mỗi đồng chi đều là revenue.",
+    cta: "START FREE — RISK ZERO",
+    phoneHtml: `
+      <div class="phone-d5" style="height:100%;padding:24px 10px 12px;">
+        <div style="text-align:center;"><span class="head-pill">📊 ROI Calculator</span></div>
+        <div class="calc">
+          <div class="calc-row"><span class="l">Setup cost</span><span class="v zero">$0</span></div>
+          <div class="calc-row"><span class="l">Monthly fee</span><span class="v zero">$0</span></div>
+          <div class="calc-row"><span class="l">Ad spend</span><span class="v zero">$0</span></div>
+          <div class="divider"></div>
+          <div class="calc-row"><span class="l">Revenue earned</span><span class="v gain">$24,180</span></div>
+        </div>
+        <div class="roi-big">∞ ROI</div>
+        <div class="check-row">Pay-on-performance</div>
+        <div class="check-row">Real sales only</div>
+        <div class="check-row">Cancel anytime</div>
+      </div>`,
+    cards: {
+      tl: { bg: "linear-gradient(135deg,#d1fae5,#a7f3d0)", color: "#065f46", emoji: "🛡️", name: "Pay only on sales", meta: "No upfront cost" },
+      br: { bg: "linear-gradient(135deg,#ecfdf5,#d1fae5)", color: "#047857", emoji: "📊", name: "ROI guaranteed", meta: "Every $1 spent = revenue" },
+      bottom: { bg: "linear-gradient(135deg,#059669,#047857)", color: "#fff", emoji: "✅", name: "Free forever, cancel anytime" }
+    }
+  }
+};
+
+function applyCard(idPrefix, data) {
+  const img = document.getElementById(idPrefix + "Img");
+  img.style.background = data.bg;
+  img.style.color = data.color;
+  img.textContent = data.emoji;
+  document.getElementById(idPrefix + "Name").textContent = data.name;
+  if (data.meta && document.getElementById(idPrefix + "Meta")) {
+    document.getElementById(idPrefix + "Meta").textContent = data.meta;
+  }
+}
+
+function render(key) {
+  const d = designs[key];
+  const popup = document.getElementById("popup");
+  popup.className = "popup design-" + key;
+  document.getElementById("logoText").textContent = d.logoText;
+  document.getElementById("logoMark").textContent = d.logoEmoji;
+  document.getElementById("phoneScreen").innerHTML = d.phoneHtml;
+  document.getElementById("popupTitle").innerHTML = d.titleHtml;
+  document.getElementById("popupDesc").textContent = d.desc;
+  document.getElementById("popupCta").textContent = d.cta;
+  applyCard("cardTL", d.cards.tl);
+  applyCard("cardBR", d.cards.br);
+  applyCard("cardBottom", d.cards.bottom);
+}
+
+document.querySelectorAll(".design-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".design-btn").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    render(btn.dataset.design);
+  });
+});
+
+document.querySelector(".popup-close").addEventListener("click", () => {
+  document.querySelector(".overlay").style.display = "none";
+});
+
+render("d1");
+</script>
+</body>
+</html>
